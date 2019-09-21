@@ -14,3 +14,16 @@
  </view>
 
  <!-- 轮播图结束 -->
+
+
+ <!-- 导航部分结构开始 -->
+<view class="index_nav">
+    <navigator wx:for="{{navitemList}}" wx:key="name" url="{{item.navigator_url}}">
+        <image src="{{item.image_src}}" mode="widthFix"></image>
+     </navigator>
+      
+    
+</view>
+  
+
+ <!-- 导航部分结构结束 -->

@@ -1,3 +1,4 @@
+<!-- 搜索结构开始 -->
 <view class="search_input">
 <navigator url="/pages/search/index">搜索</navigator>   
 </view>

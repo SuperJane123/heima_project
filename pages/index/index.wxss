@@ -1,5 +1,10 @@
-/* 轮播图样式开始 */
 .index_swiper swiper {
   height: 340rpx;
 }
-/* 轮播图样式结束 */
+.index_nav {
+  display: flex;
+}
+.index_nav navigator {
+  flex: 1;
+  padding: 30rpx;
+}
