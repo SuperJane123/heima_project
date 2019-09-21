@@ -1,1 +1,16 @@
-<search></search>
+ <!-- 输入框结构 -->
+ <search></search>
+
+ <!--  轮播图开始 -->
+ <view class="index_swiper">
+     <swiper circular autoplay indicator-dots>
+         <swiper-item wx:for="{{swiperList}}"
+         wx:for-item = "item"
+         wx:for-index = "index"
+         wx:key="goods_id">
+             <image src="{{item.image_src}}" mode="widthFix"></image>
+         </swiper-item>
+     </swiper>
+ </view>
+
+ <!-- 轮播图结束 -->

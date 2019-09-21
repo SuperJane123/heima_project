@@ -1,5 +1,17 @@
 @import './styles/css/iconfont.wxss';
 
-pages {
-    --background-color: '#FFB6C1'
+page,view,text,image,input,button,navigator,swiper,swiper-item {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+image {
+    width:100%;
+}
+
+page{
+    color: #666;
+    font-size: 28rpx;
+    /* 声明变量 */
+    --themeColor:#FFB6C1;
+  }
