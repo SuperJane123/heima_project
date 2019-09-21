@@ -1,0 +1,12 @@
+.search {
+    background: #FFB6C1;
+    height: 50rpx;
+    padding: 0 15rpx;
+
+}
+input {
+    background-color: #fff;
+    border-radius: 8rpx;
+    text-align: center;
+    font-size: 24rpx;
+}

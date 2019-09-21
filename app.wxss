@@ -1,2 +1,5 @@
-@import './styles/css/iconfont.wxss'
+@import './styles/css/iconfont.wxss';
 
+pages {
+    --background-color: '#FFB6C1'
+}
