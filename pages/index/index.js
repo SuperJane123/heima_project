@@ -4,12 +4,16 @@ Page({
         swiperList: [],
 
         // 导航部分数组
-        navitemList: []
+        navitemList: [],
+
+        // 楼层数组
+        floorList: []
     },
     // 页面的钩子函数，监听页面加载
     onLoad() {
         this.getSwiperData()
         this.getNavItem()
+        this.getfloorItem()
     },
 
     // 获取轮播图数据
@@ -24,13 +28,27 @@ Page({
         })
     },
 
+    // 获取导航数据
     getNavItem(){
         wx.request({
             url: 'https://api.zbztb.cn/api/public/v1/home/catitems', 
             success: (res => {
-                console.log(res.data)
+                // console.log(res.data)
                 this.setData({
                     navitemList:res.data.message
+                })
+            })
+        })
+    },
+
+    // 获取楼层内容数据
+    getfloorItem(){
+        wx.request({
+            url: 'https://api.zbztb.cn/api/public/v1/home/floordata', 
+            success: (res => {
+                console.log(res.data)
+                this.setData({
+                    floorList:res.data.message
                 })
             })
         })

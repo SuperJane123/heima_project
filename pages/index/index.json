@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "search": "../../components/search/index"
-  }
+    "searchInput": "../../components/searchInput/index"
+  },
+  "navigationBarTitleText": "美她优购"
 }

@@ -1,13 +1,10 @@
  <!-- 输入框结构 -->
- <search></search>
+ <searchInput></searchInput>
 
  <!--  轮播图开始 -->
  <view class="index_swiper">
      <swiper circular autoplay indicator-dots>
-         <swiper-item wx:for="{{swiperList}}"
-         wx:for-item = "item"
-         wx:for-index = "index"
-         wx:key="goods_id">
+         <swiper-item wx:for="{{swiperList}}" wx:for-item="item" wx:for-index="index" wx:key="goods_id">
              <image src="{{item.image_src}}" mode="widthFix"></image>
          </swiper-item>
      </swiper>
@@ -16,14 +13,39 @@
  <!-- 轮播图结束 -->
 
 
+
  <!-- 导航部分结构开始 -->
-<view class="index_nav">
-    <navigator wx:for="{{navitemList}}" wx:key="name" url="{{item.navigator_url}}">
-        <image src="{{item.image_src}}" mode="widthFix"></image>
+ <view class="index_nav">
+     <navigator wx:for="{{navitemList}}" wx:key="name" url="{{item.navigator_url}}">
+         <image src="{{item.image_src}}" mode="widthFix"></image>
      </navigator>
-      
-    
-</view>
-  
+
+
+ </view>
 
  <!-- 导航部分结构结束 -->
+
+
+
+
+ <!-- 楼层结构开始  -->
+ <view class="floor">
+     <view class="floor_group" wx:for="{{floorList}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
+         <!-- 楼层标题 -->
+         <view class="floor_group_title">
+             <image src="{{item1.floor_title.image_src}}" mode="widthFix"></image>
+         </view>
+
+         <!-- 楼层内容 -->
+         <view class="floor_group_content">
+             <navigator wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="name"
+                 url="{{item2.navigator_url}}">
+                 <image src="{{item2.image_src}}"></image>
+             </navigator>
+
+         </view>
+     </view>
+
+ </view>
+
+ <!-- 楼层结构结束  -->

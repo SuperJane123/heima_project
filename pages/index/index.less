@@ -19,3 +19,38 @@
     }
 }
 // 导航部分样式结束
+
+
+// 楼层样式开始
+// 原图宽度 / 原图高度 = 更高后的宽度 / 更改后的高度
+// 232 / 386 = 750 / ？
+// ？ = 750rpx * 386 / 232 
+
+.floor {
+    .floor_group {
+        .floor_group_title{}
+        .floor_group_content{
+           border: 8rpx solid #fff;
+            overflow: hidden;
+            navigator{
+                width: 33.33%;
+                float: left;
+                box-sizing: border-box; 
+                padding: 5rpx;
+                &:first-child {
+                    height:750rpx / 3 * 386 / 232 ;
+                }
+                &:nth-last-child(-n+4){
+                    height: 750rpx / 3 * 386 / 232 / 2;
+                }
+                image {
+                    height: 100%;
+                }
+            }
+           
+        }
+    }
+}
+
+// 楼层样式结束
+

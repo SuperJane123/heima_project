@@ -1,2 +1,5 @@
-<!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<!-- 搜索输入框 -->
+<searchInput></searchInput>
+
+<!-- 分类下拉选框 -->
+<scroll_view></scroll_view>

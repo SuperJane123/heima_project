@@ -8,3 +8,22 @@
   flex: 1;
   padding: 30rpx;
 }
+.floor .floor_group .floor_group_content {
+  border: 8rpx solid #fff;
+  overflow: hidden;
+}
+.floor .floor_group .floor_group_content navigator {
+  width: 33.33%;
+  float: left;
+  box-sizing: border-box;
+  padding: 5rpx;
+}
+.floor .floor_group .floor_group_content navigator:first-child {
+  height: 415.94827586rpx;
+}
+.floor .floor_group .floor_group_content navigator:nth-last-child(-n+4) {
+  height: 207.97413793rpx;
+}
+.floor .floor_group .floor_group_content navigator image {
+  height: 100%;
+}

@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "searchInput": "../../components/searchInput/index",
+    "scroll_view": "../../components/scroll_view/index"
+  },
+  "navigationBarTitleText": "分类"
 }
