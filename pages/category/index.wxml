@@ -1,5 +1,50 @@
 <!-- 搜索输入框 -->
 <searchInput></searchInput>
 
+<!-- 分类结构 -->
+<view class="cate">
+    <!-- 左侧分类数据 -->
+<scroll-view class="cate_nav" scroll-y>
+    <view class="nav_item active" wx:for="{{cateList}}"
+    wx:key="*this"
+    > {{item.cat_name}} </view>
+</scroll-view>
+
+<!-- 右侧分类数据详情 -->
+<scroll-view class="cate_detail"  scroll-y>
+ <view class="cate_detail_group"
+ wx:for="{{cateDetail}}"
+ wx:for-item = "item1"
+ wx:for-index="index1"
+ wx:key="cat_id"
+
+ >
+     <!-- 每个详情组的标题 -->
+<view class="detail_group_title">
+    <view class="split"> /</view>
+    <view class="title">{{item1.cat_name}}</view>
+    <view class="split"> /</view>
+</view>
+<!-- 每个详情组的内容 -->
+<view class="detail_group_content">
+    <navigator
+    url="/pages/goods_list"
+    wx:for="{{item1.children}}"
+    wx:for-item="item2"
+    wx:for-index="index2"
+    wx:key="cat_id"
+    >
+        <image src="{{item2.cat_icon}}" mode="widthFix"></image>
+        <view class="goods_name">{{item2.cat_name}}</view>
+    </navigator>
+      
+
+
+</view> 
+</view>
+
+</scroll-view>
+</view>
+
 
   

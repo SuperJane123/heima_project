@@ -1,0 +1,39 @@
+.cate {
+  height: calc(100vh - 90rpx);
+  display: flex;
+}
+.cate .cate_nav {
+  width: 160rpx;
+}
+.cate .cate_nav .nav_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+}
+.cate .cate_nav .active {
+  color: var(--themeColor);
+  border-left: 5rpx solid currentColor;
+}
+.cate .cate_detail {
+  flex: 1;
+}
+.cate .cate_detail .detail_group_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cate .cate_detail .detail_group_title .title {
+  margin: 0 15rpx;
+}
+.cate .cate_detail .detail_group_content {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.cate .cate_detail .detail_group_content navigator {
+  width: 33.33%;
+}
+.cate .cate_detail .detail_group_content navigator image {
+  width: 60%;
+}

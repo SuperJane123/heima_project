@@ -1,0 +1,47 @@
+// 分类数据样式开始
+// 底部tabbar是不占位置的
+// 分类页面的高度 = 100% - 输入框的高度
+.cate {
+    height: ~'calc(100vh - 90rpx)';
+    display: flex;
+
+    // 左侧分类导航
+    .cate_nav {
+        width: 160rpx;
+        .nav_item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80rpx;
+        }
+        .active {
+            color: var(--themeColor);
+            border-left: 5rpx solid currentColor
+
+        }
+    }
+
+    // 右侧分类详情
+    .cate_detail {
+        flex: 1;
+        .detail_group_title{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .title {
+                margin: 0 15rpx;
+            }
+        }
+        .detail_group_content {
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+            navigator {
+                width: 33.33%;
+                image {
+                    width: 60%;
+                }
+            }
+        }
+    }
+}
