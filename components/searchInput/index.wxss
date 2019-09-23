@@ -1,18 +1,13 @@
-/* 搜索样式开始 */
 .search_input {
-    background-color: var(--themeColor);
-    height: 90rpx;
-    padding: 15rpx;
-
+  height: 90rpx;
+  padding: 15rpx;
+  background-color: var(--themeColor);
 }
-navigator {
-    height: 100%;
-    background-color: #fff;
-    border-radius: 8rpx;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-    font-size: 24rpx;
+.search_input navigator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: #fff;
+  border-radius: 8rpx;
 }
-
-/* 搜索样式结束 */

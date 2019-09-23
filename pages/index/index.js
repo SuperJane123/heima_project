@@ -1,4 +1,8 @@
+import {request} from '../../request/index'
+
+
 Page({
+    
     data: {
         // 轮播图数组
         swiperList: [],
@@ -18,38 +22,31 @@ Page({
 
     // 获取轮播图数据
     getSwiperData() {
-        wx.request({
-            url: 'https://api.zbztb.cn/api/public/v1/home/swiperdata', //仅为示例，并非真实的接口地址
-            success: (res => {
-                this.setData({
-                    swiperList: res.data.message
-                })
+        request({url:'/home/swiperdata'})
+        .then(res=>{
+            this.setData({
+                swiperList: res.data.message
             })
         })
     },
 
     // 获取导航数据
     getNavItem(){
-        wx.request({
-            url: 'https://api.zbztb.cn/api/public/v1/home/catitems', 
-            success: (res => {
-                // console.log(res.data)
-                this.setData({
-                    navitemList:res.data.message
-                })
-            })
+        
+        request({url:'/home/catitems'})
+        .then(res=>{
+            this.setData({navitemList:res.data.message})
         })
     },
 
     // 获取楼层内容数据
     getfloorItem(){
-        wx.request({
-            url: 'https://api.zbztb.cn/api/public/v1/home/floordata', 
-            success: (res => {
-                console.log(res.data)
-                this.setData({
-                    floorList:res.data.message
-                })
+ 
+        request({url:'/home/floordata'})
+        .then(res=>{
+            console.log(res)
+            this.setData({
+                floorList:res.data.message
             })
         })
     }
