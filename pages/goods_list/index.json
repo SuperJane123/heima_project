@@ -1,5 +1,8 @@
 {
   "usingComponents": {
     "YGtasb":"../../components/YGtasb/index"
-  }
+  },
+
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true
 }

@@ -7,7 +7,16 @@
      2.3 否则就是还有数据，页码数++
      2.4 需要重新发起异步请求，注意这里有bug
      2.5 如果没有下一页数据，需要弹窗提示用户即可
-          */
+          
+     
+2.下拉刷新
+1.需要在页面的json文件中开启下拉刷新功能
+2.监听事件 onPullDownRefresh    
+3.事件触发
+  3.1 重置页面 =》重置数据
+  3.2 发送异步请求，获取数据
+  3.3 等待数据回来，手动关闭下拉刷新功能     
+     */
 
 
 
@@ -42,18 +51,17 @@ Page({
     index: 0,
 
     // 商品列表数据
-    goodsList: [],
-
-    //请求商品列表需要的参数
-    QueryParmas: {
-      query: "",
-      cid: '',
-      pagenum: 1,
-      pagesize: 10
-    },
-
+    goodsList: []
    
   },
+  //请求商品列表需要的参数
+  QueryParmas: {
+    query: "",
+    cid: '',
+    pagenum: 1,
+    pagesize: 10
+  },
+
    // 总条数
    totalPages:1 ,
 
@@ -71,14 +79,14 @@ Page({
   onLoad: function (options) {
     // 获取cid分类参数
     const {cid} = options    
-    this.data.QueryParmas.cid = cid
+    this.QueryParmas.cid = cid
     this.getGoodsList()
   },
   getGoodsList() {
     // 获取商品列表数据
     request({
         url: '/goods/search',
-        data:this.data.QueryParmas
+        data:this.QueryParmas
       })
       .then(res => {
         const {total,goods} = res.data.message
@@ -87,10 +95,12 @@ Page({
          const newGoodsList = goods
         //  旧数据
          const beforeGoodsList = this.data.goodsList
-        this.totalPages = Math.ceil(total / this.data.QueryParmas.pagesize) 
+        this.totalPages = Math.ceil(total / this.QueryParmas.pagesize) 
         this.setData({
           goodsList: [...beforeGoodsList,...newGoodsList]
         })
+        // 关闭下拉刷新功能
+        wx.stopPullDownRefresh()
       })
   },
 
@@ -104,26 +114,29 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    
+    // 重置数据
+    this.QueryParmas.pagenum = 1
+    this.setData({
+      goodsList: []
+    })
+      this.getGoodsList()
+      
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-    const {QueryParmas} = this.data
-       
-    
     //没有数据，弹窗口提示客户
-    if(QueryParmas.pagenum >= this.totalPages){
+    if(this.QueryParmas.pagenum >= this.totalPages){
       wx.showToast({
         title: '数据已加载完毕',
         mask: true,
       });
     }else {
        // 当触底时，页面++
-       QueryParmas.pagenum++
+       this.QueryParmas.pagenum++
        this.getGoodsList()
     }
   },
