@@ -1,1 +1,2 @@
-
+<!-- 商品列表tab栏 -->
+<YGtasb tabData="{{tabData}}"></YGtasb>

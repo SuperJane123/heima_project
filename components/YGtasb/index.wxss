@@ -1,1 +1,18 @@
-/* components/YGtasb/index.wxss */
+/* 商品列表tab栏样式开始 */
+.yg_tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90rpx;
+}
+.tabs_title {
+ flex: 1;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-bottom: 1px solid #fff;
+}
+.active {
+    color: var(--themeColor);
+    border-bottom-color: currentColor;
+}

@@ -1,2 +1,9 @@
-<!--components/YGtasb/index.wxml-->
-<text>components/YGtasb/index.wxml</text>
+<!-- 商品tab栏结构开始 -->
+<view class="yg_tabs">
+    <view class="tabs_title {{currentIndex === index ? 'active' : ''}}"
+    wx:for="{{tabData}}"
+    wx:key="id"
+    data-index="{{index}}"
+    bindtap="handelTap"
+    >{{item.title}}</view>
+</view>
