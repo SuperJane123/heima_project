@@ -1,18 +1,39 @@
-// pages/goods_detail/index.js
+
+import {request} from '../../request/index'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    // 商品详情数据
+    goodsDetailList:{}
+    
+    
   },
+   // 请求详情接口参数
+   goods_id:'',
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      this.goods_id = options.goods_id
+    // 调用获取详情数据方法
+    this.getGoodsDetail()
+  },
 
+
+  // 获取商品详情数据
+  getGoodsDetail(){
+    request({url:'/goods/detail',data:{goods_id:this.goods_id}})
+    .then(res=>{
+      console.log(res)
+      this.setData({
+        goodsDetailList:res.data.message
+      })
+    })
   },
 
   /**

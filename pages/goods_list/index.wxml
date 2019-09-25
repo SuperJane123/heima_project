@@ -3,7 +3,10 @@
 </YGtasb>
 <view class="content">
     <view class="goods_list" wx:if="{{index === 0}}">
-        <navigator class="goods_item" wx:for="{{goodsList}}" wx:key="{{goods_id}}">
+        <navigator class="goods_item" 
+        wx:for="{{goodsList}}" 
+        wx:key="{{goods_id}}"
+        url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
             <view class="goods_item_left">
                 <image src="{{item.goods_small_logo || 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569423123614&di=99a7478c73abd559a2070c90b75173e1&imgtype=0&src=http%3A%2F%2Fen.pimg.jp%2F033%2F198%2F095%2F1%2F33198095.jpg'}}" mode="widthFix"></image>
             </view>

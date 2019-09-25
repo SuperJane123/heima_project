@@ -2,7 +2,7 @@
   "usingComponents": {
     "YGtasb":"../../components/YGtasb/index"
   },
-
+  "navigationBarTitleText": "商品列表",
   "backgroundTextStyle": "dark",
   "enablePullDownRefresh": true
 }
