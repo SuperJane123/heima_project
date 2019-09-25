@@ -36,52 +36,39 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  // 加入购物车事件
+  handelAddCart(){
+    const {goodsDetailList} = this.data
+    // 读取本地数据，判断是否有数据
+let cateList = wx.getStorageSync('cart') || [];
+// 找出是否有添加过同样的商品
+const index = cateList.findIndex(v=>v.goods_id === goodsDetailList.goods_id)
 
-  },
+if(index === -1){
+  cateList.push({
+    goods_id: goodsDetailList.goods_id,
+    goods_name:goodsDetailList.goods_name,
+    goods_price:goodsDetailList.goods_price,
+    goods_small_logo:goodsDetailList.goods_small_logo,
+    num:1
+  })
+   // 储存数据到本地缓存里
+   wx.setStorageSync('cart',cateList)
+}else {
+  cateList[index].num++;
+  wx.setStorageSync('cart',cateList)
+}
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
-  },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+    // 提示客户加入购物车成功
+    wx.showToast({
+      title: '加入成功',
+      mask: true,
 
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    });
+      
   }
+
+
 })

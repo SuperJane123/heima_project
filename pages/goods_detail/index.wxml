@@ -26,9 +26,40 @@
 
 
 <!-- 图文详情结构开始 -->
-    <view class="pic_detail">
-        <view class="pic_detail_title">图文详情</view>
-            <rich-text nodes="{{goodsDetailList.goods_introduce}}" bindtap="tap"></rich-text>
-        </view>
+<view class="pic_detail">
+    <view class="pic_detail_title">图文详情</view>
+    <rich-text nodes="{{goodsDetailList.goods_introduce}}" bindtap="tap"></rich-text>
+</view>
 
 <!-- 图文详情结构结束 -->
+
+
+<!-- 底部tab栏结构开始 -->
+<view class="footer_tab">
+    <view class="tab_item">
+        <button  open-type="contact" class="contact"></button>
+        <i class="iconfont icon-kefu"></i>
+        <text>联系客服</text>
+    </view>
+    <view class="tab_item">
+            <button  open-type="share" class="contact"></button>
+        <i class="iconfont icon-yixianshi-"></i>
+        <text>分享</text>
+    </view>
+    <navigator class="tab_item" url="/pages/cart/index">
+        <i class="iconfont icon-gouwuche"></i>
+        <text>购物车</text>
+    </navigator>
+    <view class="tab_item btm_cart"
+    bindtap="handelAddCart"
+    >
+        加入购物车
+    </view>
+    <view class="tab_item btm_buy">
+        立即购买
+    </view>
+
+
+</view>
+
+<!-- 底部tab栏结构结束 -->
