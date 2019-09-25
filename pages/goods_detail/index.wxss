@@ -1,5 +1,5 @@
 page {
-  padding: 0 8rpx;
+  padding: 0 8rpx 90rpx;
 }
 .pics_swiper {
   height: 60vw;

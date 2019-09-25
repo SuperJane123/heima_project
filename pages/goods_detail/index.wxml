@@ -1,7 +1,15 @@
 <!-- 轮播图结构开始 -->
 <swiper class="pics_swiper" indicator-dots autoplay circular>
-    <swiper-item class="pics_item" wx:for="{{goodsDetailList.pics}}" wx:key="pics_id">
-        <image src="{{item.pics_sma_url}}" mode="widthFix"></image>
+    <swiper-item class="pics_item"
+    wx:for="{{goodsDetailList.pics}}" 
+    wx:key="pics_id"
+    bindtap="handlePreview"
+    data-image="{{item.pics_mid_url}}"
+    
+    >
+        <image src="{{item.pics_mid_url}}" 
+        mode="widthFix"
+        ></image>
     </swiper-item>
 </swiper>
 <!-- 轮播图结构结束 -->

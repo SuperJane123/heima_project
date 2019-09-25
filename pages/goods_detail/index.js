@@ -10,24 +10,19 @@ Page({
     // 商品详情数据
     goodsDetailList:{}
     
-    
   },
-   // 请求详情接口参数
-   goods_id:'',
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      this.goods_id = options.goods_id
     // 调用获取详情数据方法
-    this.getGoodsDetail()
+    this.getGoodsDetail(options.goods_id)
   },
 
 
   // 获取商品详情数据
-  getGoodsDetail(){
-    request({url:'/goods/detail',data:{goods_id:this.goods_id}})
+  getGoodsDetail(goods_id){
+    request({url:'/goods/detail',data:{goods_id}})
     .then(res=>{
       console.log(res)
       this.setData({
@@ -60,15 +55,22 @@ if(index === -1){
 }
 
 
-
     // 提示客户加入购物车成功
     wx.showToast({
       title: '加入成功',
       mask: true,
 
     });
-      
-  }
+  },
 
+  // 点击轮播实现大图预览
+  handlePreview(e){
+    const {goodsDetailList} = this.data
+     let urls = goodsDetailList.pics.map(v=> v.pics_mid_url)
+    wx.previewImage({
+      current: e.currentTarget.dataset.image, // 当前显示图片的http链接
+       urls // 需要预览的图片http链接列表
+    })
+  }
 
 })
