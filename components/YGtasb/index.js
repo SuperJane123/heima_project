@@ -24,9 +24,12 @@ Component({
   methods: {
     // 点击切换栏事件
     handelTap(e){
+      const {index} = e.target.dataset
       this.setData({
-        currentIndex: e.target.dataset.index
+        currentIndex: index
       })
+      // 传值给父组件
+      this.triggerEvent('getIndex',{index})
     }
   }
 })

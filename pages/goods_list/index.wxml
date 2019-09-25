@@ -1,2 +1,20 @@
 <!-- 商品列表tab栏 -->
-<YGtasb tabData="{{tabData}}"></YGtasb>
+<YGtasb tabData="{{tabData}}" bindgetIndex="handelgetIndex">
+</YGtasb>
+<view class="content">
+    <view class="goods_list" wx:if="{{index === 0}}">
+        <navigator class="goods_item" wx:for="{{goodsList}}" wx:key="{{goods_id}}">
+            <view class="goods_item_left">
+                <image src="{{item.goods_small_logo || 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569423123614&di=99a7478c73abd559a2070c90b75173e1&imgtype=0&src=http%3A%2F%2Fen.pimg.jp%2F033%2F198%2F095%2F1%2F33198095.jpg'}}" mode="widthFix"></image>
+            </view>
+            <view class="goods_item_right">
+                <view class="item_right_dec">
+                    {{item.goods_name}}
+                </view>
+                <text class="item_right_price">¥{{item.goods_price}}</text>
+            </view>
+        </navigator>
+    </view>
+    <view class="goods_sale" wx:elif="{{index === 1}}">2</view>
+    <view class="goods_price" wx:else>3</view>
+</view>
