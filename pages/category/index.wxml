@@ -5,9 +5,11 @@
 <view class="cate">
     <!-- 左侧分类数据 -->
 <scroll-view class="cate_nav" scroll-y>
-    <view class="nav_item active" wx:for="{{cateList}}"
+    <view class="nav_item {{currentIndex === index ? 'active' : ''}}" wx:for="{{menuList}}"
     wx:key="*this"
-    > {{item.cat_name}} </view>
+    data-index="{{index}}"
+    bindtap="handelTap"
+    > {{item}} </view>
 </scroll-view>
 
 <!-- 右侧分类数据详情 -->
@@ -28,7 +30,7 @@
 <!-- 每个详情组的内容 -->
 <view class="detail_group_content">
     <navigator
-    url="/pages/goods_list"
+    url="/pages/goods_list/index?cid={{item2.cat_id}}"
     wx:for="{{item1.children}}"
     wx:for-item="item2"
     wx:for-index="index2"
