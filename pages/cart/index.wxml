@@ -1,13 +1,15 @@
 <!-- 收货地址按钮 -->
-<button  class="btn_address" type="primary" plain bindtap="handelGetAddress">获取收货地址</button>
-<view class="address_info">
+<button  class="btn_address"
+ type="primary" plain
+  bindtap="handelGetAddress"
+  wx:if="{{!address}}"
+  >获取收货地址</button>
+<view class="address_info" wx:else>
     <view class="address_info_left">
-        <view class="info_name">张三</view>
-        <view class="info_address">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, expedita soluta voluptates amet, maxime quod quia nemo quasi et itaque illo earum voluptatum fugiat</view>
+        <view class="info_name">{{address.userName}}</view>
+        <view class="info_address">{{address.detialAdress}}</view>
     </view>
     <view class="address_info_right">
-        <view class="info_tel">1234567</view>
+        <view class="info_tel">{{address.telNumber}}</view>
     </view>
-
-
 </view>
