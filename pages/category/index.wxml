@@ -4,7 +4,7 @@
 <!-- 分类结构 -->
 <view class="cate">
     <!-- 左侧分类数据 -->
-<scroll-view class="cate_nav" scroll-y>
+<scroll-view class="cate_nav" scroll-y >
     <view class="nav_item {{currentIndex === index ? 'active' : ''}}" wx:for="{{menuList}}"
     wx:key="*this"
     data-index="{{index}}"
@@ -13,7 +13,7 @@
 </scroll-view>
 
 <!-- 右侧分类数据详情 -->
-<scroll-view class="cate_detail"  scroll-y>
+<scroll-view class="cate_detail"  scroll-y scroll-top="{{scrollTop}}">
  <view class="cate_detail_group"
  wx:for="{{cateDetail}}"
  wx:for-item = "item1"

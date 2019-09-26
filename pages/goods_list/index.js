@@ -21,8 +21,7 @@
 
 
 
-
-
+import regeneratorRuntime from '../../lib/runtime/runtime';
 import {
   request
 } from '../../request/index'
@@ -52,7 +51,7 @@ Page({
 
     // 商品列表数据
     goodsList: []
-   
+
   },
   //请求商品列表需要的参数
   QueryParmas: {
@@ -62,12 +61,14 @@ Page({
     pagesize: 10
   },
 
-   // 总条数
-   totalPages:1 ,
+  // 总条数
+  totalPages: 1,
 
   // 获取子组件的数据
   handelgetIndex(e) {
-    const {index } = e.detail
+    const {
+      index
+    } = e.detail
     this.setData({
       index
     })
@@ -78,35 +79,51 @@ Page({
    */
   onLoad: function (options) {
     // 获取cid分类参数
-    const {cid} = options    
+    const {
+      cid
+    } = options
     this.QueryParmas.cid = cid
     this.getGoodsList()
   },
-  getGoodsList() {
-    // 获取商品列表数据
-    request({
-        url: '/goods/search',
-        data:this.QueryParmas
-      })
-      .then(res => {
-        const {total,goods} = res.data.message
-         // 接口返回数据
-        //  新数据
-         const newGoodsList = goods
-        //  旧数据
-         const beforeGoodsList = this.data.goodsList
-        this.totalPages = Math.ceil(total / this.QueryParmas.pagesize) 
-        this.setData({
-          goodsList: [...beforeGoodsList,...newGoodsList]
-        })
-        // 关闭下拉刷新功能
-        wx.stopPullDownRefresh()
-      })
+  // getGoodsList() {
+  //   // 获取商品列表数据
+  //   request({
+  //       url: '/goods/search',
+  //       data:this.QueryParmas
+  //     })
+  //     .then(res => {
+  //       const {total,goods} = res.data.message
+  //        // 接口返回数据
+  //       //  新数据
+  //        const newGoodsList = goods
+  //       //  旧数据
+  //        const beforeGoodsList = this.data.goodsList
+  //       this.totalPages = Math.ceil(total / this.QueryParmas.pagesize) 
+  //       this.setData({
+  //         goodsList: [...beforeGoodsList,...newGoodsList]
+  //       })
+  //       // 关闭下拉刷新功能
+  //       wx.stopPullDownRefresh()
+  //     })
+  // },
+
+  // 获取商品列表数据 ---- es7的写法
+  async getGoodsList() {
+    let res = await request({url: '/goods/search',data: this.QueryParmas})
+    console.log(res)
+    const { total, goods} = res
+    // 接口返回数据
+    //  新数据
+    const newGoodsList = goods
+    //  旧数据
+    const beforeGoodsList = this.data.goodsList
+    this.totalPages = Math.ceil(total / this.QueryParmas.pagesize)
+    this.setData({
+      goodsList: [...beforeGoodsList, ...newGoodsList]
+    })
+    // 关闭下拉刷新功能
+    wx.stopPullDownRefresh()
   },
-
-
-
-
 
 
 
@@ -114,14 +131,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+
     // 重置数据
     this.QueryParmas.pagenum = 1
     this.setData({
       goodsList: []
     })
-      this.getGoodsList()
-      
+    this.getGoodsList()
+
   },
 
   /**
@@ -129,22 +146,17 @@ Page({
    */
   onReachBottom: function () {
     //没有数据，弹窗口提示客户
-    if(this.QueryParmas.pagenum >= this.totalPages){
+    if (this.QueryParmas.pagenum >= this.totalPages) {
       wx.showToast({
-        title: '数据已加载完毕',
+        title: '没有下一页了',
+        icon: "none",
         mask: true,
       });
-    }else {
-       // 当触底时，页面++
-       this.QueryParmas.pagenum++
-       this.getGoodsList()
+    } else {
+      // 当触底时，页面++
+      this.QueryParmas.pagenum++
+      this.getGoodsList()
     }
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

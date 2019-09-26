@@ -1,4 +1,8 @@
-
+/*loadding事件注意事项
+1.因为有发送了3个请求，所以会触发3个loadding事件，但是微信做了规定，只会显示一个loading，
+2.意味着也只能取消一个loading，这会导致不能保证全部请求都回来了
+3.现在要做的是确保所有数据请求回来了，再取消loading事件
+4.可以用变量来记录次数*/
  // 请求的记录次数
  let requestTime = 0;
 export const request = (parmars) => {
@@ -18,7 +22,12 @@ export const request = (parmars) => {
             url: baseURL + parmars.url,
             // 成功触发的行数
             success: (res) => {
-                resolve(res)
+                if(res.data.meta.status && res.data.meta.status === 200){
+                    resolve(res.data.message)
+                }else {
+                    reject(res)
+                }
+                
             },
 
             // 请求失败时触发的函数
@@ -39,8 +48,5 @@ export const request = (parmars) => {
 }
 
 
-/*loadding事件注意事项
-1.因为有发送了3个请求，所以会触发3个loadding事件，但是微信做了规定，只会显示一个loading，
-2.意味着也只能取消一个loading，这会导致不能保证全部请求都回来了
-3.现在要做的是确保所有数据请求回来了，再取消loading事件
-4.可以用变量来记录次数*/
+
+

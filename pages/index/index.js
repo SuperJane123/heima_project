@@ -25,7 +25,7 @@ Page({
         request({url:'/home/swiperdata'})
         .then(res=>{
             this.setData({
-                swiperList: res.data.message
+                swiperList: res
             })
         })
     },
@@ -34,7 +34,7 @@ Page({
     getNavItem(){
         request({url:'/home/catitems'})
         .then(res=>{
-            this.setData({navitemList:res.data.message})
+            this.setData({navitemList:res})
         })
     },
 
@@ -44,7 +44,7 @@ Page({
         request({url:'/home/floordata'})
         .then(res=>{
             this.setData({
-                floorList:res.data.message
+                floorList:res
             })
         })
     }

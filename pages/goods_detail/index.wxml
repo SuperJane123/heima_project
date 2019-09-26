@@ -54,7 +54,7 @@
         <i class="iconfont icon-yixianshi-"></i>
         <text>分享</text>
     </view>
-    <navigator class="tab_item" url="/pages/cart/index">
+    <navigator class="tab_item" open-type="switchTab" url="/pages/cart/index">
         <i class="iconfont icon-gouwuche"></i>
         <text>购物车</text>
     </navigator>

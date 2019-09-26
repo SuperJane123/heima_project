@@ -1,4 +1,4 @@
-import regeneratorRuntime from '../../lib/runtime/runtime';
+
 import {request} from '../../request/index'
 
 Page({
@@ -21,25 +21,15 @@ Page({
 
 
   // 获取商品详情数据
-  //  getGoodsDetail(goods_id){
-  //   request({url:'/goods/detail',data:{goods_id}})
-  //   .then(res=>{
-  //     console.log(res)
-  //     this.setData({
-  //       goodsDetailList:res.data.message
-  //     })
-  //   })
-  // },
-   // 获取商品详情数据 ---- es7的写法
-  async getGoodsDetail(goods_id){
-    let res = await request({url:'/goods/detail',data:{goods_id}})
-    console.log(res)
-    this.setData({
-      goodsDetailList:res
+  getGoodsDetail(goods_id){
+    request({url:'/goods/detail',data:{goods_id}})
+    .then(res=>{
+      console.log(res)
+      this.setData({
+        goodsDetailList:res.data.message
+      })
     })
-
   },
-
 
   // 加入购物车事件
   handelAddCart(){

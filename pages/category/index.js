@@ -29,6 +29,9 @@ Page({
     // 当前索引位置
     currentIndex: 0,
 
+    // 滚动条的位置
+    scrollTop:100
+
   },
 
   /**
@@ -70,7 +73,7 @@ loadData(){
   getCateList(){
     request({url:'/categories'})
     .then(res=>{
-      this.cateList = res.data.message
+      this.cateList = res
         // 储存数据到本地存储中
         wx.setStorageSync('cate', {
           data: this.cateList,
@@ -101,7 +104,9 @@ loadData(){
     const cateDetail = this.cateList[index].children
     this.setData({
       currentIndex: index,
-      cateDetail
+      cateDetail,
+      scrollTop: 0
+      
     })
 
   }

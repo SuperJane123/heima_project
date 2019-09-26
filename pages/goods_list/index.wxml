@@ -1,6 +1,8 @@
 <!-- 商品列表tab栏 -->
 <YGtasb tabData="{{tabData}}" bindgetIndex="handelgetIndex">
 </YGtasb>
+
+ <!-- 商品列表内容结构开始    -->
 <view class="content">
     <view class="goods_list" wx:if="{{index === 0}}">
         <navigator class="goods_item" 
@@ -17,7 +19,10 @@
                 <text class="item_right_price">¥{{item.goods_price}}</text>
             </view>
         </navigator>
-    </view>
+    </view> 
+   
+         
     <view class="goods_sale" wx:elif="{{index === 1}}">2</view>
     <view class="goods_price" wx:else>3</view>
 </view>
+ <!-- 商品列表内容结构结束    -->
