@@ -1,1 +1,15 @@
-/* pages/cart/index.wxss */
+.btn_address {
+  width: 60%;
+  height: 90rpx;
+  margin: 15rpx auto;
+}
+.address_info {
+  padding: 15rpx;
+  display: flex;
+}
+.address_info .address_info_left {
+  flex: 2;
+}
+.address_info .address_info_right {
+  flex: 1;
+}

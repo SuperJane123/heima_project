@@ -1,1 +1,13 @@
-<button bindtap="getAddress">获取收货地址</button>
+<!-- 收货地址按钮 -->
+<button  class="btn_address" type="primary" plain bindtap="handelGetAddress">获取收货地址</button>
+<view class="address_info">
+    <view class="address_info_left">
+        <view class="info_name">张三</view>
+        <view class="info_address">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, expedita soluta voluptates amet, maxime quod quia nemo quasi et itaque illo earum voluptatum fugiat</view>
+    </view>
+    <view class="address_info_right">
+        <view class="info_tel">1234567</view>
+    </view>
+
+
+</view>
