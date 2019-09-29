@@ -17,7 +17,7 @@
     <view class="goods_item" wx:for="{{cart}}" wx:key="{{item.goods_id}}">
         <!-- 单选框 -->
         <view class="cart_chb_wrap">
-            <checkbox-group  bindchange="handelChange">
+            <checkbox-group  bindchange="handelChange" data-index="{{index}}">
                 <checkbox   checked="{{item.checked}}" ></checkbox>
             </checkbox-group>
         </view>

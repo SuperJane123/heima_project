@@ -3,7 +3,13 @@
 // 2.总价格
 // 3.总购买数量
 
-
+/*商品的单选功能
+1. 给复选框的父元素绑定bindChange
+2.获取当前的选中的状态
+  1.获取源购物车数组中的元素的选中状态
+  2.直接取反即可
+3.去修改data中的carts和缓存中的carts
+4.再重新计算数据（价格，数量）*/
 
 import regeneratorRuntime from '../../lib/runtime/runtime';
 import {
@@ -83,7 +89,6 @@ this.countData(cart)
     // 总数量根据选中的checked=true的数量计算
     let totalNum = 0;
     cart.forEach((v, i) => {
-      totalPrice
       // 如果商品被选中
       if (v.checked) {
         // 计算价格和数量
@@ -108,10 +113,19 @@ this.countData(cart)
   // 点击单选框触发的事件
   handelChange(e){
     console.log(e)
-    if(e.detail.value.length === 0){
-      this.setData({
-        allChecked:false
-      })
-    }
+    // 1.获取选中单选框的索引位置
+    const {index} = e.target.dataset
+    // 2.获取购物车数组
+    const {cart} = this.data
+    // 3.选中属性取反
+    cart[index].checked = !cart[index].checked
+    // 4.把购物车重新设置到data中和缓存中
+    this.setData({
+      cart
+    })
+    // 5.储存到缓存中
+    wx.setStorageSync('cart',cart)
+    // 6.重新计算价格
+    this.countData(cart)
   }
 })
