@@ -9,13 +9,33 @@
   1.获取源购物车数组中的元素的选中状态
   2.直接取反即可
 3.去修改data中的carts和缓存中的carts
-4.再重新计算数据（价格，数量）*/
+4.再重新计算数据（价格，数量）
+
+
+商品的数量编辑
+1.给数量按钮绑定点击事件
+ 1.给“+” 和 “-”都绑定同一个事件 “+” =>{{1}}, "-" =>{{-1}}
+ 2.传递一个参数，被点击的索引index
+ 3.获取被点击的商品
+ cart[index].num += operation
+ 4.去修改data中的carts和缓存中的carts
+ 5.再重新计算数据（价格，数量）
+
+
+ 商品的数量编辑-删除
+ 1.当用户点击“-”，同时num值等于1
+ 2.弹出窗口。询问用户是否要删除
+ 3.用户点击了是
+ 4.用户点击了否
+
+*/
 
 import regeneratorRuntime from '../../lib/runtime/runtime';
 import {
   getSetting,
   openSetting,
-  chooseAddress
+  chooseAddress,
+  showModal
 } from '../../request/index'
 Page({
 
@@ -98,15 +118,13 @@ this.countData(cart)
         allChecked = false;
       }
     })
+     // 还需要再判断全选框,因为在全选的情况下，删除全部商品后，全选框还保持着全选，所以要判断如果购物车的长度为0时，要把全选框给去掉
+     allChecked = cart.length === 0 ? false : allChecked
 
     // 重新赋值
     this.setData({
       allChecked,totalPrice,totalNum
     })
-
-
-
-
 
   },
 
@@ -127,5 +145,38 @@ this.countData(cart)
     wx.setStorageSync('cart',cart)
     // 6.重新计算价格
     this.countData(cart)
+  },
+
+
+
+  // 商品数量编辑的功能
+  async handelNumUpdate(e){      
+    const {operation,index} = e.target.dataset
+    const {cart} = this.data
+    // 判断是否是点击了“-”，同时商品数量为一时
+    if(operation === -1 && cart[index].num === 1 ){
+      const res = await showModal({title:'提示',content:"是否确认删除该商品"})
+      if(res){
+        // 如果选中确认时，从数组中删除该商品
+        cart.splice(index,1)
+      }else {
+        // 点击取消，就return
+        return
+      }
+  
+      
+    }else {
+      cart[index].num += operation   
+
+    }   
+    // 把购物车重新设置到data中和缓存中
+    this.setData({
+      cart
+    })
+    //储存到缓存中
+    wx.setStorageSync('cart',cart)
+    // 重新计算价格
+    this.countData(cart)
+
   }
 })
