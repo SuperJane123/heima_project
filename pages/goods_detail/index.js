@@ -55,7 +55,8 @@ if(index === -1){
     goods_name:goodsDetailList.goods_name,
     goods_price:goodsDetailList.goods_price,
     goods_small_logo:goodsDetailList.goods_small_logo,
-    num:1
+    num:1,
+    checked: true
   })
    // 储存数据到本地缓存里
    wx.setStorageSync('cart',cateList)

@@ -1,9 +1,5 @@
-<!-- 收货地址按钮 -->
-<button  class="btn_address"
- type="primary" plain
-  bindtap="handelGetAddress"
-  wx:if="{{!address}}"
-  >获取收货地址</button>
+<!-- 收货地址按钮开始 -->
+<button class="btn_address" type="primary" plain bindtap="handelGetAddress" wx:if="{{!address}}">获取收货地址</button>
 <view class="address_info" wx:else>
     <view class="address_info_left">
         <view class="info_name">{{address.userName}}</view>
@@ -13,3 +9,70 @@
         <view class="info_tel">{{address.telNumber}}</view>
     </view>
 </view>
+<!-- 收货地址按钮结束 -->
+
+<!-- 购物车结构开始 -->
+<view class="cart">
+    <view class="cart_title">购物车</view>
+    <view class="goods_item" wx:for="{{cart}}" wx:key="{{item.goods_id}}">
+        <!-- 单选框 -->
+        <view class="cart_chb_wrap">
+            <checkbox-group  bindchange="handelChange">
+                <checkbox   checked="{{item.checked}}" ></checkbox>
+            </checkbox-group>
+        </view>
+        <!-- 图片 -->
+        <view class="cart_img_wrap">
+            <image src="{{item.goods_small_logo}}"
+                mode="widthFix" />
+
+        </view>
+        <!-- 右边商品数据 -->
+        <view class="cart_info_wrap">
+            <view class="goods_name">{{item.goods_name}}</view>
+            <view class="cart_tool">
+                <view class="goods_price">¥{{item.goods_price}}</view>
+                <view class="goods_nums_wrap">
+                    <view class="btn_num">-</view>
+                    <text class="goods_num">1</text>
+                    <view class="btn_num">+</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 购物车结构结束 -->
+
+
+<!-- 底部合计结算结构开始 -->
+<view class="cart_footer">
+    <!-- 全选框 -->
+    <view class="allcheck">
+        <checkbox-group>
+            <checkbox checked="{{allChecked}}"></checkbox>
+            <text>全选</text>
+        </checkbox-group>
+          
+    </view>
+    <!-- 合计 -->
+    <view class="total_account">
+        <view class="total_price">
+            <text>合计：</text>
+            <text class="total_money"> ¥ {{totalPrice}}</text>
+
+        </view>
+        <text>包含运费</text>
+
+    </view>
+    <!-- 结算 -->
+    <view class="settle_pay">
+        结算({{totalNum}})
+
+    </view>
+
+
+
+
+</view>
+
+<!-- 底部合计结算结构结束 -->
