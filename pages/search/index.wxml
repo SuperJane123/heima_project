@@ -8,53 +8,8 @@
 
     <!-- 搜索内容结构开始 -->
     <view class="search_content">
-        <!-- <navigator wx-for="{{queryList}}" wx:key="{{goods_id}}">{{item.goods_name}} </navigator> -->
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-       <navigator>创维（Skyworth）65V9E 65英寸25核4K HDR高清智能电视</navigator>
-
+        <navigator wx:for="{{queryList}}" wx:key="goods_id">{{item.goods_name}} </navigator>
     </view>
     <!-- 搜索内容结构借宿 -->
 </view>
 
-
-
-<!-- <view class="search_view">
-    <view class="search_form">
-      <input value="{{inpValue}}" type="text"  bindinput="handleInput" />
-      <button wx:if="{{isFocus}}" bindtap="handleCancel" >取消</button>
-    </view>
-    <view class="search_list">
-      <navigator
-      wx:for="{{list}}"
-      wx:key="goods_id"
-      url="/pages/goods_detail/index?goods_id={{item.goods_id}}"
-      >{{item.goods_name}}</navigator>
-    </view>
-  
-  </view> -->

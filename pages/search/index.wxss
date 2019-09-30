@@ -13,6 +13,7 @@
   background-color: #fff;
   height: 100%;
   border-radius: 10rpx;
+  padding-left: 15rpx;
 
 }
 .search_from > button {
