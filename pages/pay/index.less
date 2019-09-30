@@ -1,0 +1,122 @@
+
+// 收货地址详情样式开始
+.address_info {
+    padding: 15rpx;
+    display: flex;
+
+    .address_info_left {
+        flex: 2;
+    }
+
+    .address_info_right {
+        flex: 1;
+        text-align: right;
+    }
+}
+
+// 购物车商品详情样式开始
+.cart {
+    .cart_title {
+        color: var(--themeColor);
+        font-size: 30rpx;
+        border-top: 1px solid currentColor;
+        border-bottom: 1px solid currentColor;
+        padding: 20rpx;
+
+    }
+
+    .goods_item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        padding: 10rpx 0;
+       
+
+        .cart_img_wrap {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            image {
+                width: 80%;
+            }
+        }
+
+        .cart_info_wrap {
+            flex: 4;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding-left: 15rpx;
+            overflow: hidden;
+            .goods_name {
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                font-size: 26rpx;
+            }
+
+            .cart_tool {
+                display: flex;
+                justify-content: space-between;
+                padding: 10rpx;
+                view.goods_price {
+                    color: var(--themeColor);
+                    font-size: 36rpx;
+                }
+
+                .goods_nums_wrap {
+                    display: flex;
+                    view {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                                
+                }
+            }
+        }
+    }
+}
+
+// 底部结算样式开始
+.cart_footer {
+    position: fixed;
+    width: 100vw;
+    bottom:0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90rpx;
+    border-top: 1px solid #eee;
+    .total_account {
+        margin-right: 10rpx;
+        flex: 3;
+        text-align: right;
+        font-size: 30rpx;
+        .total_price {
+            .total_money {
+                color: var(--themeColor);
+                font-size: 40rpx;
+            }
+        }
+    }
+    .settle_pay {
+        flex: 1;
+        padding: 25rpx;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        background-color: var(--themeColor);
+        font-size: 35rpx;
+        
+    }
+}
+
+
