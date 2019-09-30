@@ -18,7 +18,7 @@
 }
 .search_from > button {
   width: 15%;
-  font-size: 24rpx;
+  font-size: 28rpx;
   height: 100%;
   margin-left: 15rpx;
 }
