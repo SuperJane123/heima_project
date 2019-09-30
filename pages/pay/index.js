@@ -1,7 +1,15 @@
-/*
-在页面数据渲染时
-
-*/
+/**
+ * 1.在页面数据渲染的时候，要加载的购车数据应该是item.true
+ * carts = carts.filter(v>v.checked)
+ * 
+ * 2.当用户点击结算按钮
+ *   1.绑定点击事件
+ * 
+ * 3.创建订单
+ *  创建订单前需要做的事
+ *   1.获取用户token
+ *    2.跳转到另外页面 授权页面-获取用户token
+ */
 Page({
 
   /**
@@ -67,5 +75,13 @@ this.countData(cart)
 
   },
 
+  // 点击支付时跳转的页面
+  handelPay(){
+    wx.navigateTo({
+      url: '/pages/auth/index',
+    
+    });
+      
+  }
 
 })

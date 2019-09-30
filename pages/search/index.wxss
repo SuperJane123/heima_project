@@ -1,1 +1,36 @@
-/* pages/search/index.wxss */
+.search_view {
+  padding: 20rpx;
+  background-color: #dedede;
+}
+.search_from {
+  height: 60rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search_from > input {
+  flex: 1;
+  background-color: #fff;
+  height: 100%;
+  border-radius: 10rpx;
+
+}
+.search_from > button {
+  width: 15%;
+  font-size: 24rpx;
+  height: 100%;
+  margin-left: 15rpx;
+}
+.search_content {
+  margin-top: 30rpx;
+  height: calc(100vh - 130rpx);
+  overflow: auto;
+}
+.search_content > navigator{
+  padding: 10rpx;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
