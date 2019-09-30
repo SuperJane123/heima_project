@@ -11,7 +11,6 @@ export const request = (parmars) => {
     return new Promise((resolve, reject) => {
         // 每次发送请求时次数加1
         requestTime++
-        console.log(requestTime)
         // 发送请求前添加loading事件
         wx.showLoading({
             title: '努力加载中',

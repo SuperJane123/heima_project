@@ -110,7 +110,6 @@ Page({
   // 获取商品列表数据 ---- es7的写法
   async getGoodsList() {
     let res = await request({url: '/goods/search',data: this.QueryParmas})
-    console.log(res)
     const { total, goods} = res
     // 接口返回数据
     //  新数据

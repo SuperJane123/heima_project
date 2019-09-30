@@ -48,7 +48,7 @@ page {
   left: 0;
   width: 100vw;
   background-color: #fff;
-  font-size: 20rpx;
+  font-size: 25rpx;
 }
 .footer_tab .tab_item {
   display: flex;

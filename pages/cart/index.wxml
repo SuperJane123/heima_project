@@ -73,7 +73,7 @@
 
     </view>
     <!-- 结算 -->
-    <view class="settle_pay">
+    <view class="settle_pay" bindtap = "handelPay">
         结算({{totalNum}})
 
     </view>

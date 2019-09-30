@@ -28,6 +28,12 @@
  3.用户点击了是
  4.用户点击了否
 
+
+ 点击结算功能
+ 1.判断用户有没有选中购买的商品
+ 2.判断用户有没有选中收货地址
+ 3.都满足了，跳转页面，跳转到支付页面
+
 */
 
 import regeneratorRuntime from '../../lib/runtime/runtime';
@@ -35,7 +41,8 @@ import {
   getSetting,
   openSetting,
   chooseAddress,
-  showModal
+  showModal,
+  showToast
 } from '../../request/index'
 Page({
 
@@ -130,7 +137,6 @@ this.countData(cart)
 
   // 点击单选框触发的事件
   handelChange(e){
-    console.log(e)
     // 1.获取选中单选框的索引位置
     const {index} = e.target.dataset
     // 2.获取购物车数组
@@ -178,5 +184,29 @@ this.countData(cart)
     // 重新计算价格
     this.countData(cart)
 
+  },
+
+  // 点击支付所触发的事件
+  async handelPay(){
+    const {address,totalNum} = this.data
+    // 判断是否有地址
+    if(!address){
+        await showToast({title:'你还没选中收货地址',icon:"none",mask:true})
+        return;
+    }
+    if(!totalNum){
+      await showToast({title:'你还没选中商品',icon:"none",mask:true})
+        return;
+    }
+    wx.navigateTo({
+      url: '/pages/pay/index'
+    });
+      
+
+    // 判断是否有勾选商品
+    
+    
+  
+      
   }
 })

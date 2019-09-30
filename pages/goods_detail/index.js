@@ -33,7 +33,6 @@ Page({
    // 获取商品详情数据 ---- es7的写法
   async getGoodsDetail(goods_id){
     let res = await request({url:'/goods/detail',data:{goods_id}})
-    console.log(res)
     this.setData({
       goodsDetailList:res
     })
