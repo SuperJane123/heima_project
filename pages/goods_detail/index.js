@@ -1,6 +1,21 @@
-import regeneratorRuntime from '../../lib/runtime/runtime';
-import {request} from '../../request/index'
 
+
+/**
+ * 
+ * 点击收藏事件
+ * 1.给收藏绑定tap事件
+ * 2.获取到缓存中的collect数据 || [] 
+ * 3.判断当前商品是否被收藏
+ *    1.被收藏了，把该商品从colletc中删除
+ *    2.没被收藏，把该商品添加到collect中 
+ * 4.加一些提示
+ *   1.图标变颜色
+ *   2.弹窗提示
+ */
+
+
+import regeneratorRuntime from '../../lib/runtime/runtime';
+import {request,showToast} from '../../request/index'
 Page({
 
   /**
@@ -8,7 +23,10 @@ Page({
    */
   data: {
     // 商品详情数据
-    goodsDetailList:{}
+    goodsDetailList:{},
+
+    // 判断该商品是否被收藏图标
+    isCollect:false
     
   },
   /**
@@ -17,6 +35,7 @@ Page({
   onLoad: function (options) {
     // 调用获取详情数据方法
     this.getGoodsDetail(options.goods_id)
+    
   },
 
 
@@ -36,6 +55,12 @@ Page({
     this.setData({
       goodsDetailList:res
     })
+    const {goodsDetailList} = this.data
+    let collet = wx.getStorageSync('collect') || []
+    const index = collet.findIndex(v => v.goods_id === goodsDetailList.goods_id)
+      this.setData({
+        isCollect : index === -1 ? false : true
+      })
 
   },
 
@@ -81,6 +106,33 @@ if(index === -1){
       current: e.currentTarget.dataset.image, // 当前显示图片的http链接
        urls // 需要预览的图片http链接列表
     })
+  },
+
+  async handelCollect(){
+    const {goodsDetailList} = this.data
+    // 获取缓存中的collect数据
+    let collect = wx.getStorageSync('collect') || []
+    // 判断该商品是否存在collect中
+    const index = collect.findIndex(v => v.goods_id === goodsDetailList.goods_id)
+    if(index === -1) {
+      // 如果不存在，添加到缓存中
+      collect.push(goodsDetailList)
+      // 收藏成功
+      this.setData({
+        isCollect: true
+      })
+      await showToast({title:"收藏成功",mask: true})
+  
+    }else {
+      // 如果存在就删除
+      collect.splice(index,1)
+      // 取消收藏
+      this.setData({
+        isCollect: false
+      })
+      await showToast({title:"取消收藏",mask: true})
+    }
+    wx.setStorageSync('collect',collect)
   }
 
 })

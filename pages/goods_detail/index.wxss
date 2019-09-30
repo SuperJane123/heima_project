@@ -33,6 +33,9 @@ page {
   justify-content: center;
   align-items: center;
 }
+.goods_product .goods_info .goods_info_right .icon-shoucang1 {
+  color: orange;
+}
 .pic_detail .pic_detail_title {
   color: var(--themeColor);
   font-size: 35rpx;
